@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZENITH // VOID ENGINE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --void-bg: #050509;
+        --void-paper: #0a0a12;
+        --void-accent: #7b1fa2;
+        --void-cyan: #00e5ff;
+        --void-text: #e0e0e0;
+      }
+      body {
+        background-color: var(--void-bg);
+        color: var(--void-text);
+        font-family: 'JetBrains Mono', monospace;
+        overflow: hidden;
+      }
+      .scroll-bar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      .scroll-bar::-webkit-scrollbar-track {
+        background: #0a0a12; 
+      }
+      .scroll-bar::-webkit-scrollbar-thumb {
+        background: #333; 
+      }
+      .scroll-bar::-webkit-scrollbar-thumb:hover {
+        background: var(--void-cyan); 
+      }
+      .scanline {
+        background: linear-gradient(
+          to bottom,
+          rgba(255,255,255,0),
+          rgba(255,255,255,0) 50%,
+          rgba(0,0,0,0.2) 50%,
+          rgba(0,0,0,0.2)
+        );
+        background-size: 100% 4px;
+        position: fixed;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        opacity: 0.15;
+      }
+      .flicker {
+        animation: flicker 0.15s infinite;
+      }
+      @keyframes flicker {
+        0% { opacity: 0.95; }
+        100% { opacity: 1; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
+    "d3": "https://esm.sh/d3@^7.9.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <div class="scanline"></div>
+  </body>
+</html>
